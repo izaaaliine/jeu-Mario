@@ -10,6 +10,37 @@ body {
   background-position: center;
   background-size: cover;
   display: flex;
+  position: relative;
+}
+.go {
+  width: 20vw;
+  height: 20vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  z-index: 6;
+  background-color: transparent;
+  overflow: hidden;
+  animation: zoomInOut 2s infinite alternate;
+}
+@keyframes zoomInOut {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.go img {
+  width: 15vw;
 }
 /* Joueur 1 */
 .joueur1 {
@@ -482,4 +513,10 @@ body {
 }
 .imgKamekJ2 {
   height: 20vh;
+}
+
+/* Griser Joueur adverse */
+
+.grise {
+  filter: grayscale(100%);
 }

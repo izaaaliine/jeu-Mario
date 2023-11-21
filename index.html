@@ -14,6 +14,9 @@
   </head>
   <body>
     <div class="global">
+      <button class="go">
+        <img src="img/GO.png" alt="" />
+      </button>
       <!-- Joueur 1 -->
       <div class="joueur1">
         <img src="img/joueur1.png" alt="" class="imgJ1" />
@@ -22,7 +25,7 @@
           <img src="img/champignon.png" alt="" class="champignonJ1" />
         </div>
         <!-- Cards J1 -->
-        <div class="card1Joueur1">
+        <div class="card1Joueur1" id="cardsJ1">
           <img src="img/mario.png" alt="" class="imgMarioJ1" />
           <div class="card1J1Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -31,12 +34,12 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque1J1">Attaque</button>
-              <button class="btnSpéciale1J1">Spéciale</button>
+              <button class="btnAttaque1J1" id="next">Attaque</button>
+              <button class="btnSpeciale1J1" id="next">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card2Joueur1">
+        <div class="card2Joueur1" id="cardsJ1">
           <img src="img/luigi.png" alt="" class="imgLuigiJ1" />
           <div class="card2J1Hover">
             <p>L'Attaque permet de d'enlever 2 vies à l'adversaire</p>
@@ -45,12 +48,12 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque2J1">Attaque</button>
-              <button class="btnSpéciale2J1">Spéciale</button>
+              <button class="btnAttaque2J1" id="next">Attaque</button>
+              <button class="btnSpeciale2J1" id="next">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card3Joueur1">
+        <div class="card3Joueur1" id="cardsJ1">
           <img src="img/peach.webp" alt="" class="imgPeachJ1" />
           <div class="card3J1Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -59,12 +62,12 @@
               seule fois)
             </p>
             <div>
-              <button class="btnAttaque3J1">Attaque</button>
-              <button class="btnSpéciale3J1">Spéciale</button>
+              <button class="btnAttaque3J1" id="next">Attaque</button>
+              <button class="btnSpeciale3J1" id="next">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card4Joueur1">
+        <div class="card4Joueur1" id="cardsJ1">
           <img src="img/kamek.png" alt="" class="imgKamekJ1" />
           <div class="card4J1Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -73,8 +76,8 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque4J1">Attaque</button>
-              <button class="btnSpéciale4J1">Spéciale</button>
+              <button class="btnAttaque4J1" id="next">Attaque</button>
+              <button class="btnSpeciale4J1" id="next">Spéciale</button>
             </div>
           </div>
         </div>
@@ -87,7 +90,7 @@
           <img src="img/champignon.png" alt="" class="champignonJ2" />
         </div>
         <!-- Cards J2 -->
-        <div class="card1Joueur2">
+        <div class="card1Joueur2" id="cardsJ2">
           <img src="img/mario.png" alt="" class="imgMarioJ2" />
           <div class="card1J2Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -96,12 +99,12 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque1J2">Attaque</button>
-              <button class="btnSpéciale1J2">Spéciale</button>
+              <button class="btnAttaque1J2" id="nextJ2">Attaque</button>
+              <button class="btnSpeciale1J2" id="nextJ2">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card2Joueur2">
+        <div class="card2Joueur2" id="cardsJ2">
           <img src="img/luigi.png" alt="" class="imgLuigiJ2" />
           <div class="card2J2Hover">
             <p>L'Attaque permet de d'enlever 2 vies à l'adversaire</p>
@@ -110,12 +113,12 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque2J2">Attaque</button>
-              <button class="btnSpéciale2J2">Spéciale</button>
+              <button class="btnAttaque2J2" id="nextJ2">Attaque</button>
+              <button class="btnSpeciale2J2" id="nextJ2">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card3Joueur2">
+        <div class="card3Joueur2" id="cardsJ2">
           <img src="img/peach.webp" alt="" class="imgPeachJ2" />
           <div class="card3J2Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -124,12 +127,12 @@
               seule fois)
             </p>
             <div>
-              <button class="btnAttaque3J2">Attaque</button>
-              <button class="btnSpéciale3J2">Spéciale</button>
+              <button class="btnAttaque3J2" id="nextJ2">Attaque</button>
+              <button class="btnSpeciale3J2" id="nextJ2">Spéciale</button>
             </div>
           </div>
         </div>
-        <div class="card4Joueur2">
+        <div class="card4Joueur2" id="cardsJ2">
           <img src="img/kamek.png" alt="" class="imgKamekJ2" />
           <div class="card4J2Hover">
             <p>L'Attaque permet de d'enlever une vie à l'adversaire</p>
@@ -138,8 +141,8 @@
               l'adversaire (Utilisable 1 seule fois)
             </p>
             <div>
-              <button class="btnAttaque4J2">Attaque</button>
-              <button class="btnSpéciale4J2">Spéciale</button>
+              <button class="btnAttaque4J2" id="nextJ2">Attaque</button>
+              <button class="btnSpeciale4J2" id="nextJ2">Spéciale</button>
             </div>
           </div>
         </div>
