@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let champignonClone = champignonOriginal.cloneNode(true);
     gameContainer.appendChild(champignonClone);
   }
+  disableButtons();
 });
 // 10 vies J2
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let champignonClone2 = champignonOriginal2.cloneNode(true);
     gameContainer2.appendChild(champignonClone2);
   }
+  disableButtons();
 });
 
 // créer tour par tour
@@ -37,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function startGame() {
   boutonGO.style.display = 'none';
   jeuTour();
+  enableButtons();
 }
 btnNext.forEach((bouton) => {
   bouton.addEventListener('click', function () {
@@ -50,16 +53,30 @@ btnNextJ2.forEach((bouton) => {
     jeuTour();
   });
 });
+// Désactiver les button
+function disableButtons() {
+  btnNext.forEach((bouton) => bouton.setAttribute('disabled', true));
+  btnNextJ2.forEach((bouton) => bouton.setAttribute('disabled', true));
+}
+
+function enableButtons() {
+  btnNext.forEach((bouton) => bouton.removeAttribute('disabled'));
+  btnNextJ2.forEach((bouton) => bouton.removeAttribute('disabled'));
+}
 // lancement boucle while
 function jeuTour() {
   if (nombreTour % 2 !== 0) {
     console.log('J1 joue');
     cardsJ2.forEach((card) => card.classList.add('grise'));
     cardsJ1.forEach((card) => card.classList.remove('grise'));
+    btnNextJ2.forEach((bouton) => bouton.setAttribute('disabled', true));
+    btnNext.forEach((bouton) => bouton.removeAttribute('disabled'));
   } else {
     console.log('J2 joue');
     cardsJ1.forEach((card) => card.classList.add('grise'));
     cardsJ2.forEach((card) => card.classList.remove('grise'));
+    btnNext.forEach((bouton) => bouton.setAttribute('disabled', true));
+    btnNextJ2.forEach((bouton) => bouton.removeAttribute('disabled'));
   }
 }
 // ATTAQUES J1
@@ -83,29 +100,36 @@ attaqueMario.addEventListener('click', function () {
 });
 specialeMario.addEventListener('click', function () {
   let champignons2 = document.querySelectorAll('.viesJ2 .champignonJ2');
-  if (champignons2.length > 0) {
-    let dernierChampignon2 = champignons2[champignons2.length - 1];
-    let avantDernierChampignon2 = champignons2[champignons2.length - 2];
-    gameContainer2.removeChild(dernierChampignon2);
-    gameContainer2.removeChild(avantDernierChampignon2);
+  let nombreViesAEnlever = Math.min(champignons2.length, 2);
+
+  if (nombreViesAEnlever > 0) {
+    for (let i = 0; i < nombreViesAEnlever; i++) {
+      let dernierChampignon2 = champignons2[champignons2.length - 1 - i];
+      gameContainer2.removeChild(dernierChampignon2);
+    }
   }
   specialeMario.disabled = true;
   checkPerdant();
 });
 attaqueLuigi.addEventListener('click', function () {
   let champignons2 = document.querySelectorAll('.viesJ2 .champignonJ2');
-  if (champignons2.length > 0) {
-    for (let i = 0; i < 2; i++) {
+  let nombreViesAEnlever = Math.min(champignons2.length, 2);
+
+  if (nombreViesAEnlever > 0) {
+    for (let i = 0; i < nombreViesAEnlever; i++) {
       let dernierChampignon2 = champignons2[champignons2.length - 1 - i];
       gameContainer2.removeChild(dernierChampignon2);
     }
   }
+  attaqueLuigi.disabled = true;
   checkPerdant();
 });
 specialeLuigi.addEventListener('click', function () {
   let champignons2 = document.querySelectorAll('.viesJ2 .champignonJ2');
-  if (champignons2.length > 0) {
-    for (let i = 0; i < 4; i++) {
+  let nombreViesAEnlever = Math.min(champignons2.length, 4);
+
+  if (nombreViesAEnlever > 0) {
+    for (let i = 0; i < nombreViesAEnlever; i++) {
       let dernierChampignon2 = champignons2[champignons2.length - 1 - i];
       gameContainer2.removeChild(dernierChampignon2);
     }
@@ -139,11 +163,13 @@ attaqueKemek.addEventListener('click', function () {
 });
 specialeKemek.addEventListener('click', function () {
   let champignons2 = document.querySelectorAll('.viesJ2 .champignonJ2');
-  if (champignons2.length > 0) {
-    let dernierChampignon2 = champignons2[champignons2.length - 1];
-    let avantDernierChampignon2 = champignons2[champignons2.length - 2];
-    gameContainer2.removeChild(dernierChampignon2);
-    gameContainer2.removeChild(avantDernierChampignon2);
+  let nombreViesAEnlever = Math.min(champignons2.length, 2);
+
+  if (nombreViesAEnlever > 0) {
+    for (let i = 0; i < nombreViesAEnlever; i++) {
+      let dernierChampignon2 = champignons2[champignons2.length - 1 - i];
+      gameContainer2.removeChild(dernierChampignon2);
+    }
   }
   specialeKemek.disabled = true;
   checkPerdant();
@@ -169,29 +195,36 @@ attaqueMarioJ2.addEventListener('click', function () {
 });
 specialeMarioJ2.addEventListener('click', function () {
   let champignons = document.querySelectorAll('.viesJ1 .champignonJ1');
-  if (champignons.length > 0) {
-    let dernierChampignon = champignons[champignons.length - 1];
-    let avantDernierChampignon = champignons[champignons.length - 2];
-    gameContainer.removeChild(dernierChampignon);
-    gameContainer.removeChild(avantDernierChampignon);
+  let nombreViesAEnlever2 = Math.min(champignons.length, 2);
+
+  if (nombreViesAEnlever2 > 0) {
+    for (let i = 0; i < nombreViesAEnlever2; i++) {
+      let dernierChampignon = champignons[champignons.length - 1 - i];
+      gameContainer.removeChild(dernierChampignon);
+    }
   }
   specialeMarioJ2.disabled = true;
   checkPerdant();
 });
 attaqueLuigiJ2.addEventListener('click', function () {
   let champignons = document.querySelectorAll('.viesJ1 .champignonJ1');
-  if (champignons.length > 0) {
-    for (let i = 0; i < 2; i++) {
+  let nombreViesAEnlever2 = Math.min(champignons.length, 2);
+
+  if (nombreViesAEnlever2 > 0) {
+    for (let i = 0; i < nombreViesAEnlever2; i++) {
       let dernierChampignon = champignons[champignons.length - 1 - i];
       gameContainer.removeChild(dernierChampignon);
     }
   }
+  attaqueLuigiJ2.disabled = true;
   checkPerdant();
 });
 specialeLuigiJ2.addEventListener('click', function () {
   let champignons = document.querySelectorAll('.viesJ1 .champignonJ1');
-  if (champignons.length > 0) {
-    for (let i = 0; i < 4; i++) {
+  let nombreViesAEnlever2 = Math.min(champignons.length, 4);
+
+  if (nombreViesAEnlever2 > 0) {
+    for (let i = 0; i < nombreViesAEnlever2; i++) {
       let dernierChampignon = champignons[champignons.length - 1 - i];
       gameContainer.removeChild(dernierChampignon);
     }
@@ -225,25 +258,40 @@ attaqueKemekJ2.addEventListener('click', function () {
 });
 specialeKemekJ2.addEventListener('click', function () {
   let champignons = document.querySelectorAll('.viesJ1 .champignonJ1');
-  if (champignons.length > 0) {
-    let dernierChampignon = champignons[champignons.length - 1];
-    let avantDernierChampignon = champignons[champignons.length - 2];
-    gameContainer.removeChild(dernierChampignon);
-    gameContainer.removeChild(avantDernierChampignon);
+  let nombreViesAEnlever2 = Math.min(champignons.length, 2);
+
+  if (nombreViesAEnlever2 > 0) {
+    for (let i = 0; i < nombreViesAEnlever2; i++) {
+      let dernierChampignon = champignons[champignons.length - 1 - i];
+      gameContainer.removeChild(dernierChampignon);
+    }
   }
   specialeKemekJ2.disabled = true;
   checkPerdant();
 });
 
+// Declacrer le Gagnant et le Perdant
 function checkPerdant() {
   let champignonsJ1 = document.querySelectorAll('.viesJ1 .champignonJ1');
   let champignonsJ2 = document.querySelectorAll('.viesJ2 .champignonJ2');
+  let j1WIN = document.querySelector('#j1WIN');
+  let j2WIN = document.querySelector('#j2WIN');
 
   if (champignonsJ1.length === 0) {
     console.log('Joueur 1 a perdu !');
+    j2WIN.style.display = 'block';
+    enleverGrise(cardsJ2);
+    disableButtons();
   }
 
   if (champignonsJ2.length === 0) {
     console.log('Joueur 2 a perdu !');
+    j1WIN.style.display = 'block';
+    enleverGrise(cardsJ1);
+    disableButtons();
   }
+}
+// enlever cartes grise
+function enleverGrise(cards) {
+  cards.forEach((card) => card.classList.remove('grise'));
 }
