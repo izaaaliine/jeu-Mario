@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
 function startGame() {
   boutonGO.style.display = 'none';
   jeuTour();
-  enableButtons();
 }
 btnNext.forEach((bouton) => {
   bouton.addEventListener('click', function () {
@@ -91,6 +90,7 @@ let specialeKemek = document.querySelector('.btnSpeciale4J1');
 let gameContainer2 = document.querySelector('.viesJ2');
 
 attaqueMario.addEventListener('click', function () {
+  AttaqueTortue();
   let champignons2 = document.querySelectorAll('.viesJ2 .champignonJ2');
   if (champignons2.length > 0) {
     let dernierChampignon2 = champignons2[champignons2.length - 1];
@@ -295,3 +295,20 @@ function checkPerdant() {
 function enleverGrise(cards) {
   cards.forEach((card) => card.classList.remove('grise'));
 }
+//  attaque tortue
+// let tortue = document.getElementById('tortue');
+// tortue.style.display = 'none'; // Assurez-vous que la tortue est initialement cachée
+
+// function AttaqueTortue() {
+//   tortue.style.display = 'block';
+//   tortue.classList.add('tortueAnimation');
+
+//   // Ajouter un gestionnaire d'événements pour détecter la fin de l'animation
+//   tortue.addEventListener(
+//     'animationend',
+//     function () {
+//       tortue.style.display = 'none';
+//     },
+//     { once: true }
+//   ); // Une fois l'événement déclenché, retire automatiquement le gestionnaire d'événements
+// }

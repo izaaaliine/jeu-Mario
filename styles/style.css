@@ -62,6 +62,25 @@ body {
   z-index: 8;
   display: none;
 }
+/* #tortue {
+  position: absolute;
+  width: 80px;
+  aspect-ratio: 1.5;
+  left: 0;
+  top: 50%;
+  transform: translateX(-50%);
+  animation: deplacementDroite 2s linear;
+  display: none;
+} */
+
+@keyframes deplacementDroite {
+  0% {
+    left: 20%;
+  }
+  100% {
+    left: 80%;
+  }
+}
 /* Joueur 1 */
 .joueur1 {
   height: 100vh;
